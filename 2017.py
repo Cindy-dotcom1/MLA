@@ -59,7 +59,8 @@ ax.plot(raw_y, "b.-", label="output")
 ax.set_xlabel("Jour de la semaine")
 ax.set_ylabel("Accidents")
 ax.legend()
-plt.title("Moyenne du nombe d'accidents par jour de la semaine (Lundi = 0, ..., Dimanche=6)")
+plt.title(
+    "Moyenne du nombe d'accidents par jour de la semaine (Lundi = 0, ..., Dimanche=6)")
 plt.grid()
 
 T = len(raw_x)
