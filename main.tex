@@ -225,17 +225,22 @@ g(\lambda,\nu) & \leq \min_{x \in \mathcal{F}} f_0\,(x) = p^{*}.
 \begin{block}{Dual problem}
 The \textit{dual problem} consists to find $d^{*} =\displaystyle  \max_{(\lambda,\nu) \in \mathbb{R}^{n_{1}} * \mathbb{R}^{n_{2}}} \, g(\lambda,\nu)$ such as $\lambda \geq 0$.
 \end{block}
-
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \begin{figure}[!h]
     \begin{center}
-   \caption{\label{étiquette} Primal/Dual}
-   \includegraphics[width=10cm]{primaldual}
+   \caption{\label{etiquette} Primal/Dual}
+   \includegraphics[width=10cm]{primal_dual}
    \end{center}
     \end{figure}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
      \begin{block}{Remark}
@@ -273,7 +278,10 @@ The \textit{dual problem} consists to find $d^{*} =\displaystyle  \max_{(\lambda
         \sum_{i=1}^{n_1} \lambda_i^* f_i(x^*) = 0 \Longrightarrow  \underbrace{\forall i, \lambda_i^* f_i(x^*) = 0.}_{\textbf{The complementarity problem}}
         $$
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   So, we obtain:
    \begin{itemize}
@@ -291,15 +299,16 @@ The \textit{dual problem} consists to find $d^{*} =\displaystyle  \max_{(\lambda
 
    \end{block}
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Example}
      If we have $A\in \mathbb{R}^{n \times p},\ b \in \mathbb{R}^n, C \in \mathbb{R}^{r \times p},d \in \mathbb{R}^r$, we need to resolve the least square problem:
-     \begin{gather*}
+     \begin{align*}
          \min_{x\in\mathbb{R}^p} \qquad \frac{1}{2} \left\Vert Ax - b \right\Vert^2 \\
          \text{s.t.} \quad Cx-d=0.
-     \end{gather*}
+     \end{align*}
     We write the Langragian as:
     \[
     \mathcal{L}(x,\nu) = \frac{1}{2} \left\Vert Ax - b \right\Vert^2 + \nu^\top (Cx-d).
@@ -309,10 +318,12 @@ The \textit{dual problem} consists to find $d^{*} =\displaystyle  \max_{(\lambda
     \nabla_x \mathcal{L} = A^\top (Ax-b) + C^\top \nu =0 \Longleftrightarrow A^\top Ax^* = A^\top b - C^\top \nu^*.
     \]
         We obtain a linear system:
+        \begin{align*}
         \begin{cases}
             Cx^* = d  \qquad \textit{(feasibility)}\\
             A^\top Ax^*=A^\top b - c^\top \nu^*
         \end{cases}.
+        \end{align*}
  \end{frame}
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementations}
@@ -347,36 +358,47 @@ under the constraints :
 \end{itemize}
 \end{block}
  \end{frame}
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{frame}{Optimization of hovercraft trajectory - Resolution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Optimization of hovercraft trajectory - Resolution}
 \begin{block}{Second Model : Passing near waypoints}
 We want to reach
 $$\min_{x_t, v_t,u_t} \sum\limits_{t=0}^T \|u_t\|^2 + \lambda \sum\limits_{t=0}^T \|x_t_i _ w_i\|^2,$$
 under the constraints :
 \begin{itemize}
     \item $\forall t = 0, \dots, T$,
+    \begin{align}
     \begin{cases}
     x_{t+1} = x_t + v_t \\
     v_{t+1} = v_t + u_t
     \end{cases} ;
+    \end{align}
     \item $x_0 = v_0 = 0$ ;
-    \item $x_t_0 = w_0$.
+    \item $x_{t_0} = w_0$.
 \end{itemize}
 \end{block}
-Here $\lambda$ controls the tradeoff between making u small and hitting all the waypoints. \\
- \end{frame}
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{frame}{Optimization of hovercraft trajectory - Plot}
+Here $\lambda$ controls the tradeoff between making u small and hitting all the waypoints.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Optimization of hovercraft trajectory - Plot}
 \begin{figure}[!h]
      \begin{center}
-   \caption{\label{étiquette}Resolution thanks to the First Model (left) and the Second Model (right).}
+   \caption{\label{etiquette_bis}Resolution thanks to the First Model (left) and the Second Model (right).}
    \includegraphics[width=12cm]{aeroglisseur.pdf}
    \end{center}
     \end{figure}
 The code is available \href{https://github.com/Cindy-dotcom1/MLA/blob/master/hovercraft_optimization.py}{\textit{\underline{here}}}.
  \end{frame}
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{frame}{Moving Average reminder}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Moving Average reminder}
 \begin{block}{Model}
 Moving average model is :
 $$\forall t \in \{1,\dots,T\}, \ y_t = w_1 u_t + w_2 u_{t-1} + \dots + w_k u_{t-k+1}$$
