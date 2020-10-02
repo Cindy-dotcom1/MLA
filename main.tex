@@ -348,13 +348,13 @@ We want to reach
 $$\min_{x_t, v_t,u_t} \sum\limits_{t=0}^T \|u_t\|^2,$$
 under the constraints :
 \begin{itemize}
-    \item $\forall t = 0, \dots, T$,
+    \item $\forall t = 0, \dots, T,
     \begin{cases}
     x_{t+1} = x_t + v_t \\
     v_{t+1} = v_t + u_t
-    \end{cases} ;
+    \end{cases} $
     \item $x_0 = v_0 = 0$ ;
-    \item $x_t_i = w_i \ \forall i = 1, \dots, k$.
+    \item $x_{t_i} = w_i \ \forall i = 1, \dots, k$.
 \end{itemize}
 \end{block}
  \end{frame}
@@ -365,7 +365,7 @@ under the constraints :
 \begin{frame}{Optimization of hovercraft trajectory - Resolution}
 \begin{block}{Second Model : Passing near waypoints}
 We want to reach
-$$\min_{x_t, v_t,u_t} \sum\limits_{t=0}^T \|u_t\|^2 + \lambda \sum\limits_{t=0}^T \|x_t_i _ w_i\|^2,$$
+$$\min_{x_t, v_t,u_t} \sum\limits_{t=0}^T \|u_t\|^2 + \lambda \sum\limits_{t=0}^T \|x_{t_i} - w_i\|^2,$$
 under the constraints :
 \begin{itemize}
     \item $\forall t = 0, \dots, T$,
@@ -373,7 +373,7 @@ under the constraints :
     \begin{cases}
     x_{t+1} = x_t + v_t \\
     v_{t+1} = v_t + u_t
-    \end{cases} ;
+    \end{cases}
     \end{align}
     \item $x_0 = v_0 = 0$ ;
     \item $x_{t_0} = w_0$.
@@ -389,7 +389,7 @@ Here $\lambda$ controls the tradeoff between making u small and hitting all the 
 \begin{figure}[!h]
      \begin{center}
    \caption{\label{etiquette_bis}Resolution thanks to the First Model (left) and the Second Model (right).}
-   \includegraphics[width=12cm]{aeroglisseur.pdf}
+   \includegraphics[width=12cm]{aeroglisseur}
    \end{center}
     \end{figure}
 The code is available \href{https://github.com/Cindy-dotcom1/MLA/blob/master/hovercraft_optimization.py}{\textit{\underline{here}}}.
@@ -425,8 +425,8 @@ Our process to do this, is :
  \begin{frame}{Moving Average on the dataset "Données comptages Totem" - Plot}
 \begin{figure}[!h]
      \begin{center}
-   \caption{\label{étiquette}Moving average to predict frequency of passage of cyclists (left) and prediction error (right).}
-   \includegraphics[width=12cm]{prediction_totem.pdf}
+   \caption{\label{étiquette_ma}Moving average to predict frequency of passage of cyclists (left) and prediction error (right).}
+   \includegraphics[width=12cm]{prediction_totem}
    \end{center}
     \end{figure}
 The code is available \href{https://github.com/Cindy-dotcom1/MLA/blob/master/Notebooks/Moving_Average_Totem.ipynb}{\textit{\underline{here}}}.
@@ -447,7 +447,7 @@ Our process to do this is :
 \begin{figure}[!h]
      \begin{center}
    \caption{\label{étiquette}Moving average to predict frequency of bike accidents by day in 2018 (left) and prediction error (right).}
-   \includegraphics[width=12cm]{prediction_bicycle_db.pdf}
+   \includegraphics[width=12cm]{prediction_bicycle_db}
    \end{center}
     \end{figure}
 The code is available \href{https://github.com/Cindy-dotcom1/MLA/blob/master/Notebooks/bicycle_daily_accident_prediction.ipynb}{\textit{\underline{here}}}.
@@ -474,15 +474,21 @@ The code is available \href{https://github.com/Cindy-dotcom1/MLA/blob/master/Not
     \end{figure}
 The code is available \href{https://github.com/Cindy-dotcom1/MLA/blob/master/Notebooks/Bicycle-2017.ipynb}{\textit{\underline{here}}}.
  \end{frame}
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Bibliography}
-[1] Joseph Salmon, \textit{Modéle linéaire avancé : Optimisation}, 2019, \url{http://josephsalmon.eu/enseignement/Montpellier/HMMA307/Optimisation.pdf} ; \\
+[1] Joseph Salmon, \textit{Modéle linéaire avancé : Optimisation}, 2019, \url{http://josephsalmon.eu/enseignement/Montpellier/HMMA307/Optimisation.pdf}
+
 [2] Laurent Lessard \textit{Introduction to optimization}, 2017,
 
-\printbibliography
 \end{frame}
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Bibliography}
+\printbibliography
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}
