@@ -23,6 +23,8 @@
 \usecolortheme{beaver}
 \renewcommand{\contentsname}{Table des matières}
 \usepackage{../../../sty/beamer_js} % Missing package, see  https://github.com/josephsalmon/OrganizationFiles/tree/master/tex/sty
+\usepackage{../../../sty/shortcuts_js} % Missing package, see  https://github.com/josephsalmon/OrganizationFiles/tree/master/tex/sty
+
 \begin{document}
 
 
@@ -106,17 +108,18 @@ Université de Montpellier \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Convexity reminder}
 \begin{alertblock}{Theorem}
-Consider a function f :
+Consider a function $f :
 \begin{array}{l rcl}
  & \mathbb{R}^d & \longrightarrow & \mathbb{R}^d \\
     & x & \longmapsto & f(x)
-\end{array}, if f is convex and $\mathcal{C}^1$, then \\
+\end{array}$, if $f$ is convex and $\mathcal{C}^1$, then
     $$x^{\star} \in \argmin_{x \in \mathbb{R}^d } f(x) \Leftrightarrow \nabla f(x^{\star}) = 0$$
 \end{alertblock}
 \vspace{0.4cm}
-% \begin{block}{Remark}
-% f convex and $\mathcal{C}^1 \Leftrightarrow \forall x_1 \in \mathbb{R}^d, \forall x_2 \in \mathbb{R}^d$, $$f(x) \geq f(x_1) \   + <\nabla f(x_1), x_1-x_2>$$
-% \end{block}
+\begin{block}{Remark}
+f convex and $\mathcal{C}^1 \Leftrightarrow \forall x_1 \in \mathbb{R}^d, \forall x_2 \in \mathbb{R}^d$,
+ $$f(x) \geq f(x_1) \   + <\nabla f(x_1), x_1-x_2>$$
+\end{block}
 \end{frame}
 
 
