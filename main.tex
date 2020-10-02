@@ -164,7 +164,7 @@ To achieve the goal, we need to suppose that :
 \begin{frame}
 \frametitle{Model implementation}
 \begin{block}{Definition}
-We define the \textit{feasability set} as $\mathcal{F} = \{x \in \mathbb{R}^d \ / \  \forall i=1,...,n_1, f_i(x)\leq 0 $ and $\forall j=1,...,n_2, \ h_j(x)=0\}$
+We define the \textit{feasability set} as $\mathcal{F} = \{x \in \mathbb{R}^d \ / \  \forall i=1,\dots,n_1, f_i(x)\leq 0 $ and $\forall j=1,\dots,n_2, \ h_j(x)=0\}$
 \end{block}
 \vspace{0.3cm}
 We get the following problem :
@@ -199,9 +199,13 @@ $g & : & \mathbb{R}^{n_{1}} * \mathbb{R}^{n_{2}} & \to & \mathbb{R} \\
 \begin{block}{Comments}
 \begin{itemize}
 \item g is a concave function (minimum of affine functions)
-\item \forall $\lambda \geq 0 \, (\lambda_1 \geq 0, ..., \lambda_{n_{1}}\geq0)$  and  $\forall \, x \in \mathcal{F}$ we have :
+\item \forall $\lambda \geq 0 \, (\lambda_1 \geq 0, \dots, \lambda_{n_{1}}\geq0)$  and  $\forall \, x \in \mathcal{F}$ we have :
 \begin{align*}
- \mathcal{L}(x,\lambda,\nu) &=  f_0\,(x) + \underbrace{ \sum_{i=1}^{n_1} \lambda_i \, f_i\,(x)} _{\leq \, 0} + \underbrace{ \sum_{j=1}^{n_2} \nu_j \, h_j\,(x) }_{= \, 0} \\ &\leq f_0\,(x).
+ \mathcal{L}(x,\lambda,\nu) &
+ =  f_0\,(x)
+    + \underbrace{ \sum_{i=1}^{n_1} \lambda_i \, f_i\,(x)} _{\leq \, 0}
+    + \underbrace{ \sum_{j=1}^{n_2} \nu_j \, h_j\,(x) }_{= \, 0} \\
+    & \leq f_0\,(x).
 \end{align*}
 \end{itemize}
 \end{block}
@@ -319,7 +323,7 @@ The \textit{dual problem} consists to find $d^{*} =\displaystyle  \max_{(\lambda
 To do this, we need to introduce some notations :
 \begin{itemize}
     \item k is the number of waypoints ;
-    \item $t = 0, 1, ..., T$ is the discretize time ;
+    \item $t = 0, 1, \dots, T$ is the discretize time ;
     \item $x_t$ is the hovercraft position at t time ;
     \item $v_t$ is the velocity at the time t ;
     \item $u_t$ is the thrust of hovercraft at the time t ;
@@ -333,13 +337,13 @@ We want to reach
 $$\min_{x_t, v_t,u_t} \sum\limits_{t=0}^T \|u_t\|^2,$$
 under the constraints :
 \begin{itemize}
-    \item $\forall t = 0, ..., T$,
+    \item $\forall t = 0, \dots, T$,
     \begin{cases}
     x_{t+1} = x_t + v_t \\
     v_{t+1} = v_t + u_t
     \end{cases} ;
     \item $x_0 = v_0 = 0$ ;
-    \item $x_t_i = w_i \ \forall i = 1, ..., k$.
+    \item $x_t_i = w_i \ \forall i = 1, \dots, k$.
 \end{itemize}
 \end{block}
  \end{frame}
@@ -350,7 +354,7 @@ We want to reach
 $$\min_{x_t, v_t,u_t} \sum\limits_{t=0}^T \|u_t\|^2 + \lambda \sum\limits_{t=0}^T \|x_t_i _ w_i\|^2,$$
 under the constraints :
 \begin{itemize}
-    \item $\forall t = 0, ..., T$,
+    \item $\forall t = 0, \dots, T$,
     \begin{cases}
     x_{t+1} = x_t + v_t \\
     v_{t+1} = v_t + u_t
@@ -375,13 +379,13 @@ The code is available \href{https://github.com/Cindy-dotcom1/MLA/blob/master/hov
  \begin{frame}{Moving Average reminder}
 \begin{block}{Model}
 Moving average model is :
-$$\forall t \in \{1,....,T\}, \ y_t = w_1 u_t + w_2 u_{t-1} + ... + w_k u_{t-k+1}$$
+$$\forall t \in \{1,\dots,T\}, \ y_t = w_1 u_t + w_2 u_{t-1} + \dots + w_k u_{t-k+1}$$
 where :
 \begin{itemize}
-    \item $(u_t)_{t \in {1...,T}}$ is the time serie of input date ;
-    \item $(y_t)_{t \in {1...,T}}$ is the time serie of output date ;
+    \item $(u_t)_{t \in {1\dots,T}}$ is the time serie of input date ;
+    \item $(y_t)_{t \in {1\dots,T}}$ is the time serie of output date ;
     \item k is the size for which each output is a weighted combination of k previous inputs ;
-    \item $(w_i)_{i \in {1...,k}}$ is the weight of each input.
+    \item $(w_i)_{i \in {1\dots,k}}$ is the weight of each input.
 \end{itemize}
 \end{block}
  \end{frame}
