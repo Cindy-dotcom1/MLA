@@ -6,6 +6,11 @@ import pandas as pd
 from download import download
 import numpy as np
 
+
+url = "http://josephsalmon.eu/enseignement/datasets/bicycle_db.csv"
+path_target = "./bicycle_db.csv"
+download(url, path_target, replace=False)
+
 pd.set_option('display.max_rows', 50000)
 df_bikes = pd.read_csv("bicycle_db.csv",
                        na_values="", converters={'data': str, 'heure': str})
